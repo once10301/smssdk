@@ -61,13 +61,13 @@ class _MyAppState extends State<MyApp> {
   }
 
   void getCode(BuildContext context) async {
-    var get = await Smssdk.getCode(phone);
-    showAlert(get.status, get.msg, context);
+    var result = await Smssdk.getCode(phone);
+    showAlert(result.status, result.msg, context);
   }
 
   void submitCode(BuildContext context) async {
-    var submit = await Smssdk.submitCode(phone, code);
-    showAlert(submit.status, submit.msg, context);
+    var result = await Smssdk.commitCode(phone, code);
+    showAlert(result.status, result.msg, context);
   }
 
   void showAlert(int status, String msg, BuildContext context) {

@@ -17,8 +17,8 @@ class Smssdk {
     return result;
   }
 
-  static Future<Result> submitCode(String phone, String code) async {
-    final Map<dynamic, dynamic> getCode = await channel.invokeMethod('submitCode', {'phone': phone, 'code': code});
+  static Future<Result> commitCode(String phone, String code) async {
+    final Map<dynamic, dynamic> getCode = await channel.invokeMethod('commitCode', {'phone': phone, 'code': code});
     Result result = new Result();
     result.status = getCode["status"];
     result.msg = getCode["msg"];

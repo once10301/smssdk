@@ -11,7 +11,9 @@
 }
 
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
-    if ([@"getCode" isEqualToString:call.method]) {
+    if ([@"init" isEqualToString:call.method]) {
+        result(@"");
+    } else if ([@"getCode" isEqualToString:call.method]) {
         NSDictionary* argsMap = call.arguments;
         NSString *phone = argsMap[@"phone"];
         [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:phone zone:@"86" template:@"" result:^(NSError *error) {
@@ -23,7 +25,7 @@
                 result(dic);
             }
         }];
-    } else if ([@"submitCode" isEqualToString:call.method]) {
+    } else if ([@"commitCode" isEqualToString:call.method]) {
         NSDictionary* argsMap = call.arguments;
         NSString *phone = argsMap[@"phone"];
         NSString *code = argsMap[@"code"];

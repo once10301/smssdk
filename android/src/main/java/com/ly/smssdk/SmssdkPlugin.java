@@ -45,7 +45,7 @@ public class SmssdkPlugin implements MethodCallHandler {
         String phone = call.argument("phone");
         SMSSDK.getVerificationCode("+86", phone);
         break;
-      case "submitCode":
+      case "commitCode":
         handler.setResult(result);
         String phone1 = call.argument("phone");
         String code = call.argument("code");
