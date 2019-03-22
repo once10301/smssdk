@@ -1,5 +1,7 @@
 package com.ly.smssdk;
 
+import android.util.Log;
+
 import com.mob.MobSDK;
 
 import org.json.JSONException;
@@ -74,13 +76,11 @@ public class SmssdkPlugin implements MethodCallHandler {
             result.success(get);
             break;
           case SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE:
-            HashMap<String, Object> submit = new HashMap<>();
-            submit.put("status", 0);
-            submit.put("msg", "success");
-            result.success(submit);
-            break;
-          case SMSSDK.EVENT_GET_SUPPORTED_COUNTRIES:
-            //返回支持发送验证码的国家列表
+            //提交验证码成功
+            HashMap<String, Object> commit = new HashMap<>();
+            commit.put("status", 0);
+            commit.put("msg", "success");
+            result.success(commit);
             break;
         }
       } else {
